@@ -1,12 +1,14 @@
 import express, { Application, Request, Response } from "express";
+import routes from "./routes";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import errorMiddleware from "./middlewares/errors";
 
 dotenv.config();
 const app: Application = express();
-
 app.use(express.json());
+
+app.use("/api", routes);
 app.use(helmet());
 app.get("/", (req: Request, res: Response) => {
   res.send("I am tired");

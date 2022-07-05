@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import UserModel from "../models/user_model";
-
+import jwt from "jsonwebtoken";
 const store = new UserModel();
 
 export const create = async (
@@ -83,6 +83,34 @@ export const deleteUser = async (
       Action: "Delete a user",
       Data: { ...userDelete },
       Note: "User has been deleted",
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const authenticate = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { username, password } = req.body;
+    const user = await store.authenticate(username, password);
+    const token = jwt.sign(
+      { user },
+      process.env.TOKEN_SECRET as unknown as string
+    );
+    if (!user) {
+      return res.status(401).json({
+        Message:
+          "Unable to log in, make sure the user exists and the credentials are correct.",
+      });
+    }
+    return res.json({
+      Action: "Login",
+      Data: { ...user, token },
+      Note: "Request complete",
     });
   } catch (err) {
     next(err);

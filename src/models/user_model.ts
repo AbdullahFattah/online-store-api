@@ -1,5 +1,12 @@
 import User from "../types/user_type";
 import Client from "../database";
+import bcrypt from "bcrypt";
+
+const hash = (password: string) => {
+  const salt = parseInt(process.env.SALT_ROUNDS as string);
+  return bcrypt.hashSync(password + process.env.BCRYPT_PASSWORD, salt);
+};
+
 class UserModel {
   // Create
   async create(u: User): Promise<User> {
@@ -11,7 +18,7 @@ class UserModel {
         u.first_name,
         u.last_name,
         u.username,
-        u.password,
+        hash(u.password),
       ]);
       conn.release();
       return result.rows[0];
@@ -55,7 +62,7 @@ class UserModel {
         u.first_name,
         u.last_name,
         u.username,
-        u.password,
+        hash(u.password),
         u.id,
       ]);
       conn.release();
@@ -77,6 +84,32 @@ class UserModel {
     }
   }
   // Authenticate user
+  async authenticate(username: string, password: string): Promise<User | null> {
+    try {
+      const conn = await Client.connect();
+      const sql = `SELECT password FROM users WHERE username=$1`;
+      const result = await conn.query(sql, [username]);
+      //    !!
+      if (result.rows.length) {
+        const { password: hash } = result.rows[0];
+        const passwordCheck = bcrypt.compareSync(
+          `${password}${process.env.BCRYPT_PASSWORD}`,
+          hash
+        );
+        if (passwordCheck) {
+          const userInfo = await conn.query(
+            "SELECT id, first_name, last_name, username FROM users WHERE username=($1)",
+            [username]
+          );
+          return userInfo.rows[0];
+        }
+      }
+      conn.release();
+      return null;
+    } catch (err) {
+      throw new Error(`Login failed: ${(err as Error).message}`);
+    }
+  }
 }
 
 export default UserModel;

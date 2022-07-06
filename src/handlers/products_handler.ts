@@ -60,7 +60,10 @@ export const deleteProduct = async (
   try {
     const product = await store.deleteProduct(req.params.id);
     if (product) {
-      res.json(product);
+      res.json({
+        data: product,
+        Note: `Product with id ${req.params.id} has been deleted.`,
+      });
     } else {
       res.send(
         `Product with id (${req.params.id}) doesn't exist, please make sure you have the correct id`

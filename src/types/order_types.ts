@@ -1,7 +1,7 @@
 type Order = {
-  id?: number;
+  id?: string;
   status: string;
-  user_id: number;
+  user_id: string;
 };
 
 export default Order;

@@ -51,3 +51,19 @@ export const getOrder = async (
     next(err);
   }
 };
+
+export const addProduct = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const quantity = req.body.quantity;
+  const orderId = req.params.id;
+  const productId = req.body.product_id;
+  try {
+    const product = await store.addProduct(quantity, orderId, productId);
+    res.json(product);
+  } catch (err) {
+    next(err);
+  }
+};

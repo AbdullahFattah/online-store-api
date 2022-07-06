@@ -1,4 +1,4 @@
-import User from "../types/user_type";
+import User from "../types/user_types";
 import Client from "../database";
 import bcrypt from "bcrypt";
 

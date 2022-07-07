@@ -1,39 +1,61 @@
 ## How to start he project?
 
-1- Install the dependencies listed in package.json
-2- Use script "dev" to start the express server.
-3- Use db-migrate up to run the migrations.
+### 1- Install the dependencies listed in package.json
+
+### 2- Build the project using script "build"
+
+### 3- Use script "dev" to start the express server.
+
+### 4- Use db-migrate up to run the migrations.
 
 ---
 
-Available endpoints:
--- Users --
-api/users (POST) --> Creates a new user
-api/users (GET) --> Displays all users in the database
-api/users/:id (GET) --> Displays a user with the given id
-api/users/:id (delete) --> Deletes a user with the given id
-api/users/:id (patch) --> Updates user details for user with the given id
-api/users/authenticate (POST) --> Authenticates requeted user
+# Available endpoints:
 
--- Products --
-api/products (POST) --> Creates a new product
-api/products (GET) --> Displays all products
-api/products/:id (GET) --> Views a specific product with the provided id
-api/products/:id (DELETE) --> Deletes a specific product with the provided id
+## -- Users --
 
--- Orders --
-api/orders (POST) --> Open new order
-api/orders (GET) --> Orders index
-api/orders/:id (GET) --> View order with the given id
-api/orders/:id (PATCH) --> Close an open order
-api/orders/:id/products (POST) --> Add products to an order
+### api/users (POST) --> Creates a new user
+
+### api/users (GET) --> Displays all users in the database
+
+### api/users/:id (GET) --> Displays a user with the given id
+
+### api/users/:id (delete) --> Deletes a user with the given id
+
+### api/users/:id (patch) --> Updates user details for user with the given id
+
+### api/users/authenticate (POST) --> Authenticates requeted user
+
+## -- Products --
+
+### api/products (POST) --> Creates a new product
+
+### api/products (GET) --> Displays all products
+
+### api/products/:id (GET) --> Views a specific product with the provided id
+
+### api/products/:id (DELETE) --> Deletes a specific product with the provided id
+
+## -- Orders --
+
+### api/orders (POST) --> Open new order
+
+### api/orders (GET) --> Orders index
+
+### api/orders/:id (GET) --> View order with the given id
+
+### api/orders/:id (PATCH) --> Close an open order
+
+### api/orders/:id/products (POST) --> Add products to an order
 
 ## How to start using the API?
 
-Creating a user/product/order:
+## Creating a user/product/order:
 
-USER
-Endpoint: api/users (POST)
+## USER
+
+### Endpoint: api/users (POST)
+
 Required details:
 {
 "first_name": ,

@@ -7,7 +7,7 @@ export const create = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const user = await store.create(req.body);
     res.json({
@@ -23,7 +23,7 @@ export const getUsers = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const users = await store.getUsers();
     res.json({
@@ -40,7 +40,7 @@ export const getUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const user = await store.getUser(req.params.id as unknown as string);
     res.json({
@@ -57,7 +57,7 @@ export const updateUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const update = await store.updateUser(req.body);
     res.json({
@@ -74,7 +74,7 @@ export const deleteUser = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const userDelete = await store.deleteUser(
       req.params.id as unknown as string

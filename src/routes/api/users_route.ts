@@ -3,7 +3,7 @@ import * as handlers from "../../handlers/users_handler";
 import authenticationMiddleware from "../../middlewares/authentication";
 const routes = express.Router();
 
-routes.post("/", handlers.create);
+routes.post("/", authenticationMiddleware, handlers.create);
 routes.get("/", authenticationMiddleware, handlers.getUsers);
 routes.get("/:id", authenticationMiddleware, handlers.getUser);
 routes.patch("/:id", authenticationMiddleware, handlers.updateUser);

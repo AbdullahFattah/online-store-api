@@ -7,7 +7,7 @@ export const createOrder = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const order = await store.createOrder(req.body);
     res.json(order);
@@ -20,7 +20,7 @@ export const ordersIndex = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const orders = await store.ordersIndex();
     if (orders) {
@@ -37,7 +37,7 @@ export const getOrder = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const order = await store.getOrder(req.params.id);
     if (order) {
@@ -56,7 +56,7 @@ export const addProduct = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   const quantity = req.body.quantity;
   const orderId = req.params.id;
   const productId = req.body.product_id;

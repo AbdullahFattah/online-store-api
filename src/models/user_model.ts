@@ -2,7 +2,7 @@ import User from "../types/user_types";
 import Client from "../database";
 import bcrypt from "bcrypt";
 
-const hash = (password: string) => {
+const hash = (password: string): string => {
   const salt = parseInt(process.env.SALT_ROUNDS as string);
   return bcrypt.hashSync(password + process.env.BCRYPT_PASSWORD, salt);
 };

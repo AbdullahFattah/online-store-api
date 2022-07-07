@@ -56,84 +56,112 @@
 
 ### Endpoint: api/users (POST)
 
-Required details:
-{
-"first_name": ,
-"last_name": ,
-"username": ,
-"password
-}
+### Required details:
 
-PRODUCT
-Endpoint: api/products (POST)
-Required details:
-{
-"name": ,
-"price":
-}
+### {
 
-ORDER
-Endpoint: api/orders (POST)
-required details:
-{
-"user_id":
-}
+### "first_name": ,
 
-```
-Viewing users/products/orders:
-```
+### "last_name": ,
 
-VIEW ALL
-Endpoints:
-api/users (GET) --> View all users
-api/products (GET) --> View all products
-api/orders (GET) --> View all orders
+### "username": ,
 
-VIEW SPECIFIC
-Endpoins:
-api/users/:id (GET) --> View user with given id
-api/products/:id (GET) --> View product with given id
-api/orders/:id (GET) --> View order with given id
+### "password
 
-```
-Deleting a user/product
-```
+### }
 
-Endpoints:
-api/users/:id (DELETE) --> Delete user with the given id
-api/products/:id (DELETE) --> Delete product with the given id
+## PRODUCT
 
-```
-Changing user details and closing orders
-```
+## Endpoint: api/products (POST)
 
-Endpoints:
-api/users/:id (PATCH) --> Update user details (Same details required as when creating a user)
-api/orders/:id (PATCH) --> Mark order as complete
+## Required details:
 
-```
-Add products to an order
-```
+### {
 
-Endpoint:
-api/orders/:id/products (POST) --> Adds a product to an existing order
+### "name": ,
 
-Required details:
-{
-"product_id": ,
-"quantity":
-}
+### "price":
 
-## Testing
+### }
 
-In order to run a test, we use script "test"
+## ORDER
 
----
+## Endpoint: api/orders (POST)
 
-## Available scripts
+## required details:
 
-"dev": Starts express server
-"build": Builds the project
-"format": Formats the code using prettier
-"lint": Lints the code using es-lint
-"test": Runs jasmine tests
+### {
+
+### "user_id":
+
+### }
+
+# Viewing users/products/orders:
+
+## VIEW ALL
+
+## Endpoints:
+
+### api/users (GET) --> View all users
+
+### api/products (GET) --> View all products
+
+### api/orders (GET) --> View all orders
+
+## VIEW SPECIFIC
+
+## Endpoins:
+
+### api/users/:id (GET) --> View user with given id
+
+### api/products/:id (GET) --> View product with given id
+
+### api/orders/:id (GET) --> View order with given id
+
+# Deleting a user/product
+
+## Endpoints:
+
+### api/users/:id (DELETE) --> Delete user with the given id
+
+### api/products/:id (DELETE) --> Delete product with the given id
+
+# Changing user details and closing orders
+
+### Endpoints:
+
+### api/users/:id (PATCH) --> Update user details (Same details required as when creating a user)
+
+### api/orders/:id (PATCH) --> Mark order as complete
+
+# Add products to an order
+
+## Endpoint:
+
+### api/orders/:id/products (POST) --> Adds a product to an existing order
+
+## Required details:
+
+### {
+
+### "product_id": ,
+
+### "quantity":
+
+### }
+
+# Testing
+
+## In order to run a test, we use script "test"
+
+# Available scripts
+
+### "dev": Starts express server
+
+### "build": Builds the project
+
+### "format": Formats the code using prettier
+
+### "lint": Lints the code using es-lint
+
+### "test": Runs jasmine tests

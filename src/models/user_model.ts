@@ -27,7 +27,7 @@ class UserModel {
     }
   }
   // Get users
-  async getUsers(): Promise<User[]> {
+  async index(): Promise<User[]> {
     try {
       const conn = await Client.connect();
       const sql = "SELECT id, first_name, last_name, username from users";

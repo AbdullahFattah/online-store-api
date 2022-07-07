@@ -7,4 +7,5 @@ routes.post("/", authenticationMiddleware, handlers.createOrder);
 routes.get("/", authenticationMiddleware, handlers.ordersIndex);
 routes.get("/:id", authenticationMiddleware, handlers.getOrder);
 routes.post("/:id/products", authenticationMiddleware, handlers.addProduct);
+routes.patch("/", handlers.closeOrder);
 export default routes;

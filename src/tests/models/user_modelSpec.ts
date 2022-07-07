@@ -6,7 +6,7 @@ const store = new UserModel();
 describe("User model", () => {
   describe("Model methods exist", () => {
     it("Contains a method to get users index", () => {
-      expect(store.getUsers).toBeDefined();
+      expect(store.index).toBeDefined();
     });
     it("Contains a method to get a specific user", () => {
       expect(store.getUser).toBeDefined();

@@ -67,3 +67,26 @@ export const addProduct = async (
     next(err);
   }
 };
+
+export const closeOrder = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const closedOrder = await store.closeOrder(req.body.id);
+    if (closedOrder) {
+      if (closedOrder.status == "Completed") {
+        res.send("Order is already closed");
+      } else {
+        res.json(closedOrder);
+      }
+    } else {
+      res.send(
+        `Order with id (${req.body.id}) doesn't exist, please make sure you have the correct id`
+      );
+    }
+  } catch (err) {
+    next(err);
+  }
+};

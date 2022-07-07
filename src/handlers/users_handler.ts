@@ -25,7 +25,7 @@ export const getUsers = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const users = await store.getUsers();
+    const users = await store.index();
     res.json({
       Action: "View all users",
       data: { ...users },

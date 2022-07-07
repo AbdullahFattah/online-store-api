@@ -6,12 +6,25 @@ class OrderModel {
     try {
       const conn = await Client.connect();
       const sql =
-        "INSERT INTO orders (status,user_id) VALUES ($1,$2) RETURNING *";
-      const result = await conn.query(sql, ["Active", o.user_id]);
+        "INSERT INTO orders (status,user_id) VALUES ('Active',$1) RETURNING *";
+      const result = await conn.query(sql, [o.user_id]);
       conn.release();
       return result.rows[0];
     } catch (err) {
       throw new Error(`Unable to create order:${(err as Error).message}`);
+    }
+  }
+
+  async closeOrder(id: string): Promise<Order> {
+    try {
+      const conn = await Client.connect();
+      const sql =
+        "UPDATE orders SET status='Completed' WHERE id=($1) RETURNING *";
+      const result = await conn.query(sql, [id]);
+      conn.release();
+      return result.rows[0];
+    } catch (err) {
+      throw new Error(`Unable to close order:${(err as Error).message}`);
     }
   }
 
@@ -46,9 +59,9 @@ class OrderModel {
     productId: string
   ): Promise<Order> {
     try {
+      const conn = await Client.connect();
       const sql =
         "INSERT INTO order_products (quantity, order_id, product_id) VALUES($1, $2, $3) RETURNING *";
-      const conn = await Client.connect();
 
       const result = await conn.query(sql, [quantity, orderId, productId]);
 

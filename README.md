@@ -52,7 +52,7 @@
 
 ## Creating a user/product/order:
 
-## USER
+## (USER)
 
 ### Endpoint: api/users (POST)
 
@@ -70,7 +70,7 @@
 
 ### }
 
-## PRODUCT
+## (PRODUCT)
 
 ## Endpoint: api/products (POST)
 
@@ -84,7 +84,7 @@
 
 ### }
 
-## ORDER
+## (ORDER)
 
 ## Endpoint: api/orders (POST)
 

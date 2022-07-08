@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import ProductModel from "../models/product_model";
-import jwt from "jsonwebtoken";
 
 const store = new ProductModel();
 

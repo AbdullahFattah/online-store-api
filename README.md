@@ -1,12 +1,31 @@
+# Project overview
+
+### This project is a backend for an online store website in which we can manage users, products, and orders.
+
 ## How to start he project?
 
-### 1- Install the dependencies listed in package.json
+## A. Installing dependencies and building the project
+
+### 1- Install the dependencies listed in package.json using "yarn add" or "npm install"
 
 ### 2- Build the project using script "build"
 
-### 3- Use script "dev" to start the express server.
+## B. Creating database and user
 
-### 4- Use db-migrate up to run the migrations.
+### 4- Create the required user and database with the following commands:
+
+`CREATE USER psql WITH PASSWORD 'password123'`
+`CREATE DATABASE storefront_dev `
+
+#### Grant access to the created user
+
+`GRANT ALL PRIVILEGES ON DATABASE storefront_dev TO psql`
+
+### 4- Run the migrations with the following db-migrate command:
+
+`npx db-migrate up`
+
+### 5- Use script "dev" to start the express server.
 
 ---
 

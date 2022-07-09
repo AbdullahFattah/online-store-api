@@ -11,7 +11,7 @@
     "start": "npm run build && node build/index.js",
     "format": "prettier --write src/**/*.ts",
     "lint": "eslint src/**/*.ts",
-    "test": "db-migrate reset && tsc && db-migrate up && tsc && jasmine && db-migrate reset && db-migrate up"
+    "test": "set NODE_ENV=test&& db-migrate up && tsc && jasmine && db-migrate reset"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

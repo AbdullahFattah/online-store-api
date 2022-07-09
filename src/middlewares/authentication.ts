@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import error from "./errors";
 import jwt from "jsonwebtoken";
 
 const unauthorizedError = (next: NextFunction) => {

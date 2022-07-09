@@ -15,7 +15,10 @@
 ### 4- Create the required user and database with the following commands:
 
 `CREATE USER psql WITH PASSWORD 'password123'`
-`CREATE DATABASE storefront_dev `
+`CREATE DATABASE storefront_dev`
+`CREATE DATABASE storefront_test`
+
+#### Database port is 5432
 
 #### Grant access to the created user
 

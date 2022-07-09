@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const pg_1 = require("pg");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let pool;
 if (process.env.NODE_ENV === "dev") {
     pool = new pg_1.Pool({

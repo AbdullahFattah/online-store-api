@@ -2,7 +2,7 @@
 
 ### This project is a backend for an online store website in which we can manage users, products, and orders.
 
-## How to start he project?
+## How to start the project?
 
 ## A. Installing dependencies and building the project
 
